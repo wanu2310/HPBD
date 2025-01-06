@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Trịnh Hoàng Sang!</title>
     <style>
-        /* Đặt nền cho toàn trang */
+        /* Đặt nền */
         body {
             margin: 0;
             padding: 0;
@@ -25,7 +25,6 @@
             animation: glow 2s infinite alternate;
         }
 
-        /* Hiệu ứng chữ phát sáng */
         @keyframes glow {
             from {
                 text-shadow: 0 0 10px #ffd700, 0 0 20px #ffa500;
@@ -35,20 +34,18 @@
             }
         }
 
-        /* Dòng chữ mô tả */
         p {
             font-size: 1.5rem;
             margin: 20px auto;
         }
 
-        /* Hình ảnh động bánh sinh nhật */
+        /* Hình bánh sinh nhật */
         .cake {
             width: 200px;
             margin: 30px auto;
             animation: float 2s ease-in-out infinite;
         }
 
-        /* Hiệu ứng bánh "nhảy" */
         @keyframes float {
             0%, 100% {
                 transform: translateY(0);
@@ -70,6 +67,7 @@
             border-radius: 50px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -77,48 +75,73 @@
             transform: scale(1.1);
         }
 
-        /* Hiệu ứng pháo hoa */
-        .fireworks {
+        /* Hiệu ứng mở quà */
+        #gift-box {
+            display: none;
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: url('https://cdn-icons-png.flaticon.com/512/868/868786.png') no-repeat center/contain;
+            animation: pop 0.6s ease-in-out;
         }
 
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: white;
-            animation: explode 2s linear infinite;
-        }
-
-        @keyframes explode {
-            0% {
-                opacity: 1;
-                transform: scale(0);
+        @keyframes pop {
+            from {
+                transform: translate(-50%, -50%) scale(0);
             }
-            100% {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* Chữ chúc mừng trong hộp quà */
+        #surprise-message {
+            display: none;
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #ffe400;
+            text-shadow: 0 0 10px #ffd700, 0 0 20px #ffa500;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
                 opacity: 0;
-                transform: scale(4);
+            }
+            to {
+                opacity: 1;
             }
         }
     </style>
 </head>
 <body>
-    <div class="fireworks">
-        <!-- Hiệu ứng pháo hoa -->
-        <div class="firework" style="top: 20%; left: 30%; animation-delay: 0s;"></div>
-        <div class="firework" style="top: 50%; left: 50%; animation-delay: 0.5s;"></div>
-        <div class="firework" style="top: 70%; left: 80%; animation-delay: 1s;"></div>
-    </div>
     <h1>Happy Birthday 🎉</h1>
-    <p>Chúc mừng sinh nhật Trịnh Hoàng Sang! Chúc bạn thật nhiều niềm vui, hạnh phúc và thành công trong năm mới này!</p>
+    <p>Chúc mừng sinh nhật a Sang! Chúc a Sang snzz nha, cầu tiền được tiền cầu tình được tình cầu tài được tài, mãi yêu, lớp bờ du</p>
     <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Birthday Cake" class="cake">
-    <a href="#" class="btn">Nhấn vào đây để nhận quà bất ngờ 🎁</a>
+    <button class="btn" onclick="showGift()">Nhấn vào đây để nhận quà bất ngờ 🎁</button>
+
+    <!-- Hộp quà bất ngờ -->
+    <div id="gift-box"></div>
+    <div id="surprise-message">🎉 Chúc bạn một ngày thật tuyệt vời! 🎉</div>
+
+    <script>
+        function showGift() {
+            // Hiển thị hộp quà
+            const giftBox = document.getElementById('gift-box');
+            const surpriseMessage = document.getElementById('surprise-message');
+            giftBox.style.display = 'block';
+
+            // Sau 1.5 giây, hiển thị thông điệp chúc mừng
+            setTimeout(() => {
+                surpriseMessage.style.display = 'block';
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
