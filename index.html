@@ -122,25 +122,40 @@
 </head>
 <body>
     <h1>Happy Birthday 🎉</h1>
-    <p>Chúc mừng sinh nhật a Sang! Chúc a Sang snzz nha, cầu tiền được tiền cầu tình được tình cầu tài được tài, mãi yêu, lớp bờ du</p>
+    <p>Chúc mừng sinh nhật a Sang! Chúc a Sang snzz nha, cầu tiền được tiền cầu tình được tình cầu tài được tài, mãi yêu, lớp bờ du!</p>
     <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Birthday Cake" class="cake">
     <button class="btn" onclick="showGift()">Nhấn vào đây để nhận quà bất ngờ 🎁</button>
+    <button class="btn" id="close-btn" onclick="closeGift()" style="display: none; background-color: #ff4d4d;">Đóng quà</button>
 
     <!-- Hộp quà bất ngờ -->
     <div id="gift-box"></div>
-    <div id="surprise-message">🎉 Chúc bạn một ngày thật tuyệt vời! 🎉</div>
+    <div id="surprise-message">🎉 Chúc a Sang tuổi mới thêm nhiều niềm vui mới và sớm lấy vợ nha! 🎉</div>
 
     <script>
         function showGift() {
-            // Hiển thị hộp quà
+            // Hiển thị hộp quà và thông điệp
             const giftBox = document.getElementById('gift-box');
             const surpriseMessage = document.getElementById('surprise-message');
+            const closeButton = document.getElementById('close-btn');
+
             giftBox.style.display = 'block';
+            closeButton.style.display = 'inline-block';
 
             // Sau 1.5 giây, hiển thị thông điệp chúc mừng
             setTimeout(() => {
                 surpriseMessage.style.display = 'block';
             }, 1500);
+        }
+
+        function closeGift() {
+            // Ẩn hộp quà, thông điệp và nút đóng
+            const giftBox = document.getElementById('gift-box');
+            const surpriseMessage = document.getElementById('surprise-message');
+            const closeButton = document.getElementById('close-btn');
+
+            giftBox.style.display = 'none';
+            surpriseMessage.style.display = 'none';
+            closeButton.style.display = 'none';
         }
     </script>
 </body>
